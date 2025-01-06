@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter with Background</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: url('https://cdn.discordapp.com/attachments/1287402944718704665/1325676676645912637/img-3.jpg?ex=677ca81d&is=677b569d&hm=d6c2df351da1233be352f353b34192abc906a5a655467465d546567b152cb609&');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .container {
+      text-align: center;
+      background-color: rgba(173, 216, 230, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .score-display {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .button {
+      font-size: 20px;
+      background-color: #f1c40f;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .button:active {
+      background-color: #d4ac0d;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">WIN</div>
+    <div class="score-display">
+      <span id="left-score">0</span> / <span id="right-score">10</span>
+    </div>
+    <div class="buttons">
+      <button class="button" onclick="updateScore('left', -1)">-</button>
+      <button class="button" onclick="updateScore('left', 1)">+</button>
+      <button class="button" onclick="updateScore('right', -1)">-</button>
+      <button class="button" onclick="updateScore('right', 1)">+</button>
+    </div>
+  </div>
+  <script>
+    function updateScore(side, change) {
+      const scoreElement = document.getElementById(`${side}-score`);
+      let currentScore = parseInt(scoreElement.textContent);
+      currentScore += change;
+      scoreElement.textContent = currentScore;
+    }
+  </script>
+</body>
+</html>
